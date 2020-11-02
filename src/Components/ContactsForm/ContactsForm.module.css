@@ -1,0 +1,67 @@
+.phoneBookForm {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    width: 480px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.phoneBookTitle {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0;
+    margin: 10px 0 5px;
+}
+.phoneBookName {
+    composes: phoneBookTitle;
+}
+.phoneBookNumber {
+    composes: phoneBookTitle;
+}
+
+.phoneBookInput {
+    width: calc(100% - 25px);
+    font-size: 18px;
+    font-weight: 400;
+    border: 2px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.inputName {
+    composes: phoneBookInput;
+}
+.inputNumber {
+    composes: phoneBookInput;
+}
+
+.inputName:focus, 
+.inputNumber:focus {
+    outline: none;
+    border: 2px solid blue;
+    border-radius: 3px;
+}
+
+.button {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    border: 2px solid blue;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    transition: all 0.3s linear;
+}
+
+.button:focus,
+.button:hover {
+    outline: none;
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+}
