@@ -1,14 +1,16 @@
 import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import ContactsListItem from '../ContactsListItem/ContactsListItem';
 import contactsOperations from '../../redux/Contacts/contactsOperations';
+import contactsSelectors from '../../redux/Contacts/contactsSelectors';
 import styles from './ContactsList.module.css';
 
 const ContactsList = ({contacts, onRemoveContact}) => {
     return (
-        <TransitionGroup 
+        <>
+        {contacts.length > 0
+        ? <TransitionGroup 
         component='ul' 
         className={styles.contactsList} >
                 {contacts.map(({name, id, number}) => 
@@ -23,27 +25,14 @@ const ContactsList = ({contacts, onRemoveContact}) => {
                 </CSSTransition>
                 )}
         </TransitionGroup>
+        : <h2>None contact!</h2>}
+        </>
     );
 };
 
-ContactsList.propTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.exact({
-        name: PropTypes.string,
-        id: PropTypes.string,
-        number: PropTypes.string,
-    }))
-};
-
-const mapStateToProps = (state) => {
-    const {contactsBook, filters} = state.contacts;
-    const visibleContacts = contactsBook.filter(contact => 
-        contact.name.toLowerCase().includes(filters.toLowerCase()),
-        );
-
-        return {
-            contacts: visibleContacts,
-        };
-};
+const mapStateToProps = (state) => ({
+    contacts: contactsSelectors.getVisibleContacts(state),
+});
 
 const mapDispatchToProps = {
     onRemoveContact: contactsOperations.removeContact,

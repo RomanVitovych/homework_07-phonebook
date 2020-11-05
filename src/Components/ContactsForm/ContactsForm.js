@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import contactsOperations from '../../redux/Contacts/contactsOperations';
 import contactsActions from '../../redux/Contacts/contactsActions';
+import contactsSelectors from '../../redux/Contacts/contactsSelectors';
 import styles from './ContactsForm.module.css';
 
 const ContactsForm = ({
@@ -63,9 +64,9 @@ const ContactsForm = ({
 };
 
 const mapStateToProps = (state) => ({
-    contactsBook: state.contacts.contactsBook,
-    name: state.contacts.nextName,
-    number: state.contacts.nextNumber,
+    contactsBook: contactsSelectors.getContactsBook(state),
+    name: contactsSelectors.getNextName(state),
+    number: contactsSelectors.getNextNumber(state),
 });
 
 const mapDispatchToProps = {

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './ContactsListItem.module.css';
 
 const ContactsListItem = ({name, number, onRemove}) => {
@@ -15,10 +14,5 @@ const ContactsListItem = ({name, number, onRemove}) => {
         </li>
     );
 };
-
-ContactsListItem.propTypes = {
-    name: PropTypes.string,
-    number: PropTypes.string,
-}
 
 export default ContactsListItem;

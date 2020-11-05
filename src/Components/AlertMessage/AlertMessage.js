@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import styles from './AlertMessage.module.css';
+import contactsSelectors from '../../redux/Contacts/contactsSelectors';
 
 
 const AlertMessage = ({alert}) => {
@@ -19,7 +20,7 @@ const AlertMessage = ({alert}) => {
 };
 
 const mapStateToProps = (state) => ({
-    alert: state.contacts.alert,
+    alert: contactsSelectors.getAlert(state),
 });
 
 export default connect(mapStateToProps, null)(AlertMessage);

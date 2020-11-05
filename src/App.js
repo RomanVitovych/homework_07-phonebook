@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import routes from './routes';
 import Layout from './Components/Layout/Layout';
-import Book from './Components/Book/Book';
+import Book from './Components/Book/BookContainer';
 // import styles from './App.module.css';
 
 function App() {
