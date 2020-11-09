@@ -25,7 +25,7 @@ const alertStatus = () => dispatch => {
     dispatch(contactsActions.alertStatusRequest());
 
     axios 
-        .post('/contacts')
+        .get('/contacts')
         .then(() => dispatch(contactsActions.alertStatusSuccess()))
         .catch(error => dispatch(contactsActions.alertStatusError(error)));
 };
